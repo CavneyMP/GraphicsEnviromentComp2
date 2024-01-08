@@ -4,13 +4,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GraphicsEnviromentComp2.GraphicContext;
-using GraphicsEnviromentComp2.Commands;
-using GraphicsEnviromentComp2.Factory;
+using GraphicsEnvironmentComp2.GraphicContext;
+using GraphicsEnvironmentComp2.Commands;
+using GraphicsEnvironmentComp2.Factory;
 
-namespace GraphicsEnviromentComp2.Commands
+namespace GraphicsEnvironmentComp2.Commands
 {
-    namespace GraphicsEnviromentComp2.Commands
+    namespace GraphicsEnvironmentComp2.Commands
     {
         /// <summary>
         /// A command that performs no operation

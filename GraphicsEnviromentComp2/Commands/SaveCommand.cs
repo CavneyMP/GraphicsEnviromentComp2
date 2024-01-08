@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphicsEnviromentComp2.Commands
+namespace GraphicsEnvironmentComp2.Commands
 {
     /// <summary>
     /// Saves the current commands shown in the multi line command to a file.

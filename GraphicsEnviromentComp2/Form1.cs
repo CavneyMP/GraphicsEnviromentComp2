@@ -1,6 +1,6 @@
-﻿using GraphicsEnviromentComp2.Commands;
-using GraphicsEnviromentComp2.GraphicContext;
-using GraphicsEnviromentComp2.Parser;
+﻿using GraphicsEnvironmentComp2.Commands;
+using GraphicsEnvironmentComp2.GraphicContext;
+using GraphicsEnvironmentComp2.Parser;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GraphicsEnviromentComp2
+namespace GraphicsEnvironmentComp2
 {
     public partial class Form1 : Form
     {
@@ -86,4 +86,3 @@ namespace GraphicsEnviromentComp2
         }
     }
 }
-

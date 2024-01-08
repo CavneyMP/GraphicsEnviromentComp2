@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphicsEnviromentComp2.GraphicContext
+namespace GraphicsEnvironmentComp2.GraphicContext
 {
     /// <summary>
     ///This is a class that is defined to maintain the state necessary for the drawing envrioment, it is to hold drawing position, color and pen settings.

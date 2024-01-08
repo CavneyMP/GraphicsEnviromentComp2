@@ -1,14 +1,14 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GraphicsEnviromentComp2.Commands;
+using GraphicsEnvironmentComp2.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
-using GraphicsEnviromentComp2.GraphicContext;
+using GraphicsEnvironmentComp2.GraphicContext;
 
-namespace GraphicsEnviromentComp2.Commands.Tests
+namespace GraphicsEnvironmentComp2.Commands.Tests
     {
     /// <summary>
     /// This a test class for the reset command

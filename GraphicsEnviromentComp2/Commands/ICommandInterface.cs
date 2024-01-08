@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphicsEnviromentComp2.Commands
+namespace GraphicsEnvironmentComp2.Commands
 {
     /// <summary>
     /// Here we are creating an interface which will serve as a template for all other commands

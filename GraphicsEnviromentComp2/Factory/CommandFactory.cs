@@ -1,13 +1,13 @@
-﻿using GraphicsEnviromentComp2.Commands;
+﻿using GraphicsEnvironmentComp2.Commands;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GraphicsEnviromentComp2.GraphicContext;
+using GraphicsEnvironmentComp2.GraphicContext;
 
-namespace GraphicsEnviromentComp2.Factory
+namespace GraphicsEnvironmentComp2.Factory
 {
     /// <summary>
     /// The factory class is responsible for creating the command that is matched from the parsed user input.
@@ -62,76 +62,76 @@ namespace GraphicsEnviromentComp2.Factory
                     {
                         throw new ArgumentException("DrawTo command requires two parameters: x and y coordinates.");
                     }
-                     
+
                 case "moveto":
-                        if (parameters.Length == 2
-                            && int.TryParse(parameters[0], out int moveX)
-                            && int.TryParse(parameters[1], out int moveY))
+                    if (parameters.Length == 2
+                        && int.TryParse(parameters[0], out int moveX)
+                        && int.TryParse(parameters[1], out int moveY))
+                    {
+                        return new MoveToCommand(new Point(moveX, moveY), _GraphicContext);
+                    }
+                    throw new ArgumentException("MoveTo command requires two integer parameters: x and y coordinates.");
+
+                case "clear":
+                    return new ClearCommand();
+
+                case "save":
+                    if (parameters.Length == 1)
+                    {
+                        return new SaveCommand(parameters[0], multiLineContent);
+                    }
+                    throw new ArgumentException("Save command requires a file path parameter.");
+
+                case "circle":
+                    if (parameters.Length == 1 && int.TryParse(parameters[0], out int radius))
+                    {
+                        return new CircleCommand(radius, _GraphicContext);
+                    }
+                    throw new ArgumentException("Circle command requires one integer parameter: radius.");
+
+
+                case "square":
+                    if (parameters.Length == 2
+                        && int.TryParse(parameters[0], out int width)
+                        && int.TryParse(parameters[1], out int height))
+                    {
+                        return new SquareCommand(width, height, _GraphicContext);
+                    }
+                    throw new ArgumentException("Square command requires two integers to represent the width and height.");
+
+                case "changecolour":
+                    if (parameters.Length == 1)
+                    {
+                        Color newColour;
+                        switch (parameters[0])
                         {
-                            return new MoveToCommand(new Point(moveX, moveY), _GraphicContext);
+                            case "red":
+                                newColour = Color.Red;
+                                break;
+                            case "green":
+                                newColour = Color.Green;
+                                break;
+                            case "blue":
+                                newColour = Color.Blue;
+                                break;
+                            default:
+                                throw new ArgumentException("Only choose from red, green, or blue as a parameter.");
                         }
-                        throw new ArgumentException("MoveTo command requires two integer parameters: x and y coordinates.");
-
-                    case "clear":
-                        return new ClearCommand();
-
-                    case "save":
-                        if (parameters.Length == 1)
-                        {
-                            return new SaveCommand(parameters[0], multiLineContent);
-                        }
-                        throw new ArgumentException("Save command requires a file path parameter.");
-
-                    case "circle":
-                        if (parameters.Length == 1 && int.TryParse(parameters[0], out int radius))
-                        {
-                            return new CircleCommand(radius, _GraphicContext);
-                        }
-                        throw new ArgumentException("Circle command requires one integer parameter: radius.");
+                        return new ChangePenColorCommand(newColour, _GraphicContext);
+                    }
+                    throw new ArgumentException("ChangeColor command requires one parameter for the color name.");
 
 
-                    case "square":
-                        if (parameters.Length == 2
-                            && int.TryParse(parameters[0], out int width)
-                            && int.TryParse(parameters[1], out int height))
-                        {
-                            return new SquareCommand(width, height, _GraphicContext);
-                        }
-                        throw new ArgumentException("Square command requires two integers to represent the width and height.");
+                case "load":
+                    if (parameters.Length == 1)
+                    {
+                        return new LoadCommand(parameters[0]);
+                    }
+                    throw new ArgumentException("Load command requires a file path parameter.");
 
-                    case "changecolour":
-                        if (parameters.Length == 1)
-                        {
-                            Color newColour;
-                            switch (parameters[0])
-                            {
-                                case "red":
-                                    newColour = Color.Red;
-                                    break;
-                                case "green":
-                                    newColour = Color.Green;
-                                    break;
-                                case "blue":
-                                    newColour = Color.Blue;
-                                    break;
-                                default:
-                                    throw new ArgumentException("Only choose from red, green, or blue as a parameter.");
-                            }
-                            return new ChangePenColorCommand(newColour, _GraphicContext);
-                        }
-                        throw new ArgumentException("ChangeColor command requires one parameter for the color name.");
-
-
-                    case "load":
-                        if (parameters.Length == 1)
-                        {
-                            return new LoadCommand(parameters[0]);
-                        }
-                        throw new ArgumentException("Load command requires a file path parameter.");
-
-                    default:
-                        throw new ArgumentException($"Command '{command}' is not recognized.");
-                }
+                default:
+                    throw new ArgumentException($"Command '{command}' is not recognized.");
             }
         }
     }
+}

@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GraphicsEnviromentComp2.GraphicContext;
+using GraphicsEnvironmentComp2.GraphicContext;
 using System;
 
-namespace GraphicsEnviromentComp2.GraphicContext.Tests
+namespace GraphicsEnvironmentComp2.GraphicContext.Tests
 {
     /// <summary>
     /// A unit tests for the VariableContext class.
@@ -34,12 +34,15 @@ namespace GraphicsEnviromentComp2.GraphicContext.Tests
         [TestMethod()]
         public void GetVariable_UndefinedVariable_ThrowException()
         {
-            // New variable context, and sets a variable that has not been defined. 
+            // New variable context, and sets a variable that has not been defined.
+
             var variableContext = new VariableContext();
             string variableName = "undefinedVariable";
 
-            // Attempts to retreive, when it cannot, and should be given the exception.
-            var ex = Assert.ThrowsException<ArgumentException>(() => variableContext.GetVariable(variableName));
+            // Attempts to retreive, when it cannot, should be given the exception.
+            var ex = Assert.ThrowsException<ArgumentException>(() =>
+            variableContext.GetVariable(variableName));
+
             Assert.AreEqual($"Variable '{variableName}' is not defined.", ex.Message, "Exception message does not match the expected message.");
         }
 
@@ -54,6 +57,7 @@ namespace GraphicsEnviromentComp2.GraphicContext.Tests
             string variableName = "x";
             int firstValue = 100;
             int updatedValue = 200;
+
 
             // Set initial value and then update with a new value.
             variableContext.SetVariable(variableName, firstValue);

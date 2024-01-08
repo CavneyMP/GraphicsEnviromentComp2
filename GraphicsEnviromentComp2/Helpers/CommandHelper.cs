@@ -1,11 +1,11 @@
-﻿using GraphicsEnviromentComp2.GraphicContext;
+﻿using GraphicsEnvironmentComp2.GraphicContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphicsEnviromentComp2.Helpers
+namespace GraphicsEnvironmentComp2.Helpers
 {
     public static class CommandHelpers
     {

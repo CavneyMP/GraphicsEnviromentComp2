@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GraphicsEnviromentComp2.Properties
+namespace GraphicsEnvironmentComp2.Properties
 {
 
 

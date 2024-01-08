@@ -1,14 +1,14 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GraphicsEnviromentComp2.Commands;
+using GraphicsEnvironmentComp2.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GraphicsEnviromentComp2.GraphicContext;
+using GraphicsEnvironmentComp2.GraphicContext;
 using System.Drawing;
 
-namespace GraphicsEnviromentComp2.Commands.Tests
+namespace GraphicsEnvironmentComp2.Commands.Tests
 {
     /// <summary>
     /// This is tests class to test the draw too method 

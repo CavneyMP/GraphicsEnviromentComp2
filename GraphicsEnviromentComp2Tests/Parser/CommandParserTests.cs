@@ -1,10 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GraphicsEnviromentComp2.Parser;
-using GraphicsEnviromentComp2.GraphicContext;
+using GraphicsEnvironmentComp2.Parser;
+using GraphicsEnvironmentComp2.GraphicContext;
 using System;
 using System.Linq;
 
-namespace GraphicsEnviromentComp2.Tests
+namespace GraphicsEnvironmentComp2.Tests
 {
     /// <summary>
     /// Test class for the command parser

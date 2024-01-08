@@ -1,4 +1,4 @@
-﻿using GraphicsEnviromentComp2.GraphicContext;
+﻿using GraphicsEnvironmentComp2.GraphicContext;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphicsEnviromentComp2.Commands
+namespace GraphicsEnvironmentComp2.Commands
 {
     /// <summary>
     /// This class represents a command to change the current pen colour that is held in the drawing context to a new colour that the user inputs

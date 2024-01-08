@@ -1,4 +1,4 @@
-﻿using GraphicsEnviromentComp2.GraphicContext;
+﻿using GraphicsEnvironmentComp2.GraphicContext;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphicsEnviromentComp2.Commands
+namespace GraphicsEnvironmentComp2.Commands
 {
     /// <summary>
     /// This class allows the user to draw a square by just specifiying the command, width and height.
@@ -25,7 +25,7 @@ namespace GraphicsEnviromentComp2.Commands
         /// <param name="height">It needs an integer called height, which will be the height of the square</param>
         /// <param name="context">The graphics context is what will hold the current graphics and context</param>
 
-        public SquareCommand(int width, int height, GraphicsContext context) 
+        public SquareCommand(int width, int height, GraphicsContext context)
         {
             _width = width;
             _height = height;

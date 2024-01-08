@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GraphicsEnviromentComp2.GraphicContext;
+using GraphicsEnvironmentComp2.GraphicContext;
 using System.Drawing;
-using GraphicsEnviromentComp2.Commands;
+using GraphicsEnvironmentComp2.Commands;
 
 namespace ASEGraphicAssignment.Commands.Tests
 {

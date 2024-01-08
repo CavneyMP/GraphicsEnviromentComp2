@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GraphicsEnviromentComp2.GraphicContext
+namespace GraphicsEnvironmentComp2.GraphicContext
 {
     /// <summary>
     /// This class manages a collection of variables that can be set, used and modified by user input
