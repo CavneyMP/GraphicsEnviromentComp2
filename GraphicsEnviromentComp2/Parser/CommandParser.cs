@@ -37,7 +37,7 @@ namespace GraphicsEnvironmentComp2.Parser
             string[] tokens = trimmedInput.Split(' ');
             string command = tokens[0].ToLower();
 
-            // Check if it's an 'if' or 'endif' for if statment function
+            // Check if it's an 'if' or 'endif' for IF statement function
             if (command == "if")
             {
                 return new IfCommand(string.Join(" ", tokens.Skip(1)), _variableContext);
@@ -53,11 +53,11 @@ namespace GraphicsEnvironmentComp2.Parser
             }
             else if (!IfCommand.ExecuteNext)
             {
-                return new NoOpCommand(); // Skip command execution when condition is not met
+                return new NoOpCommand(); // Skip execution when condition is not met
             }
             else
             {
-                // Existing switch case or logic to handle other commands
+                // Existing switch case commands
                 return CommandFactory.GetCommand(command, tokens.Skip(1).ToArray(), multiLineContent, _variableContext);
             }
         }

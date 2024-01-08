@@ -69,7 +69,7 @@
     <Compile Include="GraphicContext\GraphicsContext.cs" />
     <Compile Include="GraphicContext\VariableContext.cs" />
     <Compile Include="Helpers\CommandHelper.cs" />
-    <Compile Include="IfCommand.cs" />
+    <Compile Include="Commands\IfCommand.cs" />
     <Compile Include="Parser\CommandParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

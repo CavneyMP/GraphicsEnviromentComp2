@@ -37,6 +37,14 @@ namespace GraphicsEnvironmentComp2.Commands
         }
 
         /// <summary>
+        /// Simulates the setting of the ExecuteNext flag as if a condition had been evaluated.
+        /// </summary>
+        public static void SetConditionResult(bool result)
+        {
+            ExecuteNext = result;
+        }
+
+        /// <summary>
         /// Executes command, holds logic to evaluate the two values
         /// </summary>
         /// <param name="graphics">The graphics context, holding the graphical state</param>
