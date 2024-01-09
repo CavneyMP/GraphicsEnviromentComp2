@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GraphicsEnviromentComp2.CustomException;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -33,7 +34,7 @@ namespace GraphicsEnvironmentComp2.Commands
             // Check the file exists
             if (!File.Exists(_filePath))
             {
-                throw new FileNotFoundException("The specified file was not found.", _filePath);
+                throw new CustomArgumentException($" Tech message XXXX", "The specified file was not found: {_filePath}");
             }
 
             // Read the file using IO

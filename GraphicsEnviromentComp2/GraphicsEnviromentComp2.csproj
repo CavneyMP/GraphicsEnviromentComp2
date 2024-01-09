@@ -62,6 +62,7 @@
     <Compile Include="Commands\SaveCommand.cs" />
     <Compile Include="Commands\SquareCommand.cs" />
     <Compile Include="Commands\TriangleCommand.cs" />
+    <Compile Include="CustomException\CustomArgumentException.cs" />
     <Compile Include="Factory\CommandFactory.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

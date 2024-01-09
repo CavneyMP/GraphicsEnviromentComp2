@@ -1,4 +1,5 @@
-﻿using GraphicsEnvironmentComp2.GraphicContext;
+﻿using GraphicsEnviromentComp2.CustomException;
+using GraphicsEnvironmentComp2.GraphicContext;
 using System;
 using System.Drawing;
 
@@ -32,7 +33,7 @@ namespace GraphicsEnvironmentComp2.Commands
 
             if (!_variableContext.VariableExists(_variableName))
             {
-                throw new ArgumentException($"Variable '{_variableName}' does not exist.");
+                throw new CustomArgumentException($" Tech message XXXX","Variable '{_variableName}' does not exist.");
             }
 
             int currentValue = _variableContext.GetVariable(_variableName);
@@ -47,7 +48,7 @@ namespace GraphicsEnvironmentComp2.Commands
                     _variableContext.SetVariable(_variableName, currentValue - _amount);
                     break;
                 default:
-                    throw new ArgumentException($"operatorSymbol '{_operatorSymbol}' is not recognized.");
+                    throw new CustomArgumentException($" Tech message XXXX", $"operatorSymbol '{{{_operatorSymbol}}}' is not recognized.");
             }
         }
     }

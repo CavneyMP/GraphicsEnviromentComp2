@@ -1,5 +1,6 @@
 ﻿using GraphicsEnvironmentComp2.Commands;
 using System;
+using GraphicsEnviromentComp2.CustomException;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -58,7 +59,7 @@ namespace GraphicsEnvironmentComp2.Factory
                     }
                     else
                     {
-                        throw new ArgumentException("DrawTo command requires two parameters x and y pixel coordinates.");
+                        throw new CustomArgumentException(" Tech message XXXX","DrawTo command requires two parameters x and y pixel coordinates.");
                     }
 
                 case "moveto":
@@ -68,7 +69,7 @@ namespace GraphicsEnvironmentComp2.Factory
                     {
                         return new MoveToCommand(new Point(moveX, moveY), _GraphicContext);
                     }
-                    throw new ArgumentException("MoveTo command requires 2 integer parameters: x and y coordinates.");
+                    throw new CustomArgumentException(" Tech message XXXX","MoveTo command requires 2 integer parameters: x and y coordinates.");
 
                 case "clear":
                     return new ClearCommand();
@@ -78,14 +79,14 @@ namespace GraphicsEnvironmentComp2.Factory
                     {
                         return new SaveCommand(parameters[0], multiLineContent);
                     }
-                    throw new ArgumentException("Save command requires a file path parameter.");
+                    throw new CustomArgumentException(" Tech message XXXX","Save command requires a file path parameter.");
 
                 case "circle":
                     if (parameters.Length == 1 && int.TryParse(parameters[0], out int radius))
                     {
                         return new CircleCommand(radius, _GraphicContext);
                     }
-                    throw new ArgumentException("Circle command requires one integer parameter: radius.");
+                    throw new CustomArgumentException(" Tech message XXXX","Circle command requires one integer parameter: radius.");
 
 
                 case "square":
@@ -95,7 +96,7 @@ namespace GraphicsEnvironmentComp2.Factory
                     {
                         return new SquareCommand(width, height, _GraphicContext);
                     }
-                    throw new ArgumentException("Square command requires two integers to represent the width and height.");
+                    throw new CustomArgumentException(" Tech message XXXX","Square command requires two integers to represent the width and height.");
 
                 case "changecolour":
                     if (parameters.Length == 1)
@@ -113,11 +114,11 @@ namespace GraphicsEnvironmentComp2.Factory
                                 newColour = Color.Blue;
                                 break;
                             default:
-                                throw new ArgumentException("Only choose from red, green, or blue as a parameter.");
+                                throw new CustomArgumentException(" Tech message XXXX","Only choose from red, green, or blue as a parameter.");
                         }
                         return new ChangePenColorCommand(newColour, _GraphicContext);
                     }
-                    throw new ArgumentException("ChangeColor command requires one parameter for the color name.");
+                    throw new CustomArgumentException(" Tech message XXXX","ChangeColor command requires one parameter for the color name.");
 
 
                 case "load":
@@ -125,7 +126,7 @@ namespace GraphicsEnvironmentComp2.Factory
                     {
                         return new LoadCommand(parameters[0]);
                     }
-                    throw new ArgumentException("Load command requires a file path parameter.");
+                    throw new CustomArgumentException(" Tech message XXXX","Load command requires a file path parameter.");
 
 
                 case "change":
@@ -137,12 +138,12 @@ namespace GraphicsEnvironmentComp2.Factory
                         {
                             return new ChangeVariableCommand(variableName, operatorSymbol, amount, variableContext);
                         }
-                        throw new ArgumentException("Amount must be an integer.");
+                        throw new CustomArgumentException(" Tech message XXXX","Amount must be an integer.");
                     }
-                    throw new ArgumentException("Change command requires 3 parameters, operator, variable name, and amount.");
+                    throw new CustomArgumentException(" Tech message XXXX","Change command requires 3 parameters, operator, variable name, and amount.");
 
                 default:
-                    throw new ArgumentException($"Command '{command}' has not been recognized.");
+                    throw new CustomArgumentException($" Tech message XXXX", $"Command '{{{command}}}' has not been recognized.");
             }
         }
     }

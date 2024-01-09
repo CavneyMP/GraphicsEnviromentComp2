@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GraphicsEnviromentComp2.CustomException;
+
 
 namespace GraphicsEnvironmentComp2.GraphicContext
 {
@@ -47,7 +49,7 @@ namespace GraphicsEnvironmentComp2.GraphicContext
             }
             else
             {
-                throw new ArgumentException($"Variable '{name}' is not defined."); // If value is not found, exception is thrown to report back to the user.
+                throw new CustomArgumentException($" Tech message XXXX", $"Variable '{{{name}}}' is not defined."); // If value is not found, exception is thrown to report back to the user.
             }
         }
 

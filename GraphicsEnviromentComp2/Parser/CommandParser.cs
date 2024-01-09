@@ -1,4 +1,5 @@
-﻿using GraphicsEnvironmentComp2.Commands;
+﻿using GraphicsEnviromentComp2.CustomException;
+using GraphicsEnvironmentComp2.Commands;
 using GraphicsEnvironmentComp2.Commands.GraphicsEnvironmentComp2.Commands;
 using GraphicsEnvironmentComp2.Factory;
 using GraphicsEnvironmentComp2.GraphicContext;
@@ -54,7 +55,7 @@ namespace GraphicsEnvironmentComp2.Parser
                 }
                 else
                 {
-                    throw new ArgumentException("No matching 'loop' command found for 'endloop'.");
+                    throw new CustomArgumentException(" Tech message XXXX","No matching 'loop' command found for 'endloop'.");
                 }
             }
             // Handle commands inside a loop
@@ -120,12 +121,12 @@ namespace GraphicsEnvironmentComp2.Parser
                 }
                 else
                 {
-                    throw new ArgumentException($"Invalid value of variable '{variableName}' an integer is required.");
+                    throw new CustomArgumentException($" Tech message XXXX", $"Invalid value of variable '{{{variableName}}}' an integer is required.");
                 }
             }
             else
             {
-                throw new ArgumentException("Invalid variable assignment please use format 'variable = value' where variable is the name and the value is interger you want to store");
+                throw new CustomArgumentException(" Tech message XXXX","Invalid variable assignment please use format 'variable = value' where variable is the name and the value is interger you want to store");
             }
         }
 
@@ -147,12 +148,12 @@ namespace GraphicsEnvironmentComp2.Parser
                 }
                 else
                 {
-                    throw new ArgumentException($"Invalid increment value in '{userInput}' as it must be an integer.");
+                    throw new CustomArgumentException($" Tech message XXXX", $"Invalid increment value in '{{{userInput}}}' as it must be an integer.");
                 }
             }
             else
             {
-                throw new ArgumentException($"Invalid increment command format '{userInput}' please use 'variable + value'.");
+                throw new CustomArgumentException($" Tech message XXXX", $"Invalid increment command format '{{{userInput}}}' please use 'variable + value'.");
             }
         }
     }

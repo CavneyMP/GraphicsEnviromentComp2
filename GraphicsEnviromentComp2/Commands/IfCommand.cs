@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GraphicsEnviromentComp2.CustomException;
+using System;
 using System.Drawing;
 using GraphicsEnvironmentComp2.GraphicContext;
 
@@ -74,12 +75,12 @@ namespace GraphicsEnvironmentComp2.Commands
                         ExecuteNext = variableValue > value;
                         break;
                     default:
-                        throw new ArgumentException($"Unsupported operator '{operatorSymbol}'.");
+                        throw new CustomArgumentException($" Tech message XXXX","Unsupported operator '{operatorSymbol}'.");
                 }
             }
             else
             {
-                throw new ArgumentException("Condition was not in the correct format.");
+                throw new CustomArgumentException(" Tech message XXXX","Condition was not in the correct format.");
             }
         }
     }
