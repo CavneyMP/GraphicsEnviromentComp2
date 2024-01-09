@@ -54,13 +54,11 @@ namespace GraphicsEnvironmentComp2.Factory
                 case "drawto":
                     if (parameters.Length == 2)
                     {
-                        int x = TryToParseParameter(parameters[0], variableContext);
-                        int y = TryToParseParameter(parameters[1], variableContext);
-                        return new DrawToCommand(new Point(x, y), _GraphicContext);
+                        return new DrawToCommand(parameters[0], parameters[1], _GraphicContext, variableContext);
                     }
                     else
                     {
-                        throw new ArgumentException("DrawTo command requires two parameters: x and y coordinates.");
+                        throw new ArgumentException("DrawTo command requires two parameters x and y pixel coordinates.");
                     }
 
                 case "moveto":
@@ -70,7 +68,7 @@ namespace GraphicsEnvironmentComp2.Factory
                     {
                         return new MoveToCommand(new Point(moveX, moveY), _GraphicContext);
                     }
-                    throw new ArgumentException("MoveTo command requires two integer parameters: x and y coordinates.");
+                    throw new ArgumentException("MoveTo command requires 2 integer parameters: x and y coordinates.");
 
                 case "clear":
                     return new ClearCommand();
@@ -129,8 +127,22 @@ namespace GraphicsEnvironmentComp2.Factory
                     }
                     throw new ArgumentException("Load command requires a file path parameter.");
 
+
+                case "change":
+                    if (parameters.Length == 3)
+                    {
+                        string operatorSymbol = parameters[1];
+                        string variableName = parameters[0];
+                        if (int.TryParse(parameters[2], out int amount))
+                        {
+                            return new ChangeVariableCommand(variableName, operatorSymbol, amount, variableContext);
+                        }
+                        throw new ArgumentException("Amount must be an integer.");
+                    }
+                    throw new ArgumentException("Change command requires 3 parameters, operator, variable name, and amount.");
+
                 default:
-                    throw new ArgumentException($"Command '{command}' is not recognized.");
+                    throw new ArgumentException($"Command '{command}' has not been recognized.");
             }
         }
     }

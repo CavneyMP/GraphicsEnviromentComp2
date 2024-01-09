@@ -48,11 +48,14 @@
   <ItemGroup>
     <Compile Include="Commands\ChangePenColourCommand.cs" />
     <Compile Include="Commands\CircleCommand.cs" />
+    <Compile Include="Commands\ChangeVariableAmount.cs" />
     <Compile Include="Commands\ClearCommand.cs" />
     <Compile Include="Commands\DrawToCommand.cs" />
     <Compile Include="Commands\EndIfCommand.cs" />
     <Compile Include="Commands\ICommandInterface.cs" />
+    <Compile Include="Commands\IncrementCommand.cs" />
     <Compile Include="Commands\LoadCommand.cs" />
+    <Compile Include="Commands\LoopCommand.cs" />
     <Compile Include="Commands\MoveToCommand.cs" />
     <Compile Include="Commands\NoOperationCommand.cs" />
     <Compile Include="Commands\ResetCommand.cs" />

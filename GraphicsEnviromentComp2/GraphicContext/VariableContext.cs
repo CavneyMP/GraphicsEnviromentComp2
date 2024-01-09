@@ -50,6 +50,17 @@ namespace GraphicsEnvironmentComp2.GraphicContext
                 throw new ArgumentException($"Variable '{name}' is not defined."); // If value is not found, exception is thrown to report back to the user.
             }
         }
+
+
+        /// <summary>
+        /// Command to check a variable exists for error handling. 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public bool VariableExists(string name)
+        {
+            return variables.ContainsKey(name);
+        }
     }
 }
 

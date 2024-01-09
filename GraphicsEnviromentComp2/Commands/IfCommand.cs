@@ -6,7 +6,8 @@ namespace GraphicsEnvironmentComp2.Commands
 {
     public class IfCommand : ICommandInterface
     {
-        /// <summary>
+        
+        // <summary>
         /// Mimics if statements found in coding languages, executes if condition is true, does not if false. 
         /// </summary>
         private string _condition;

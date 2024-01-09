@@ -1,45 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GraphicsEnvironmentComp2.Commands;
 using GraphicsEnvironmentComp2.GraphicContext;
-using GraphicsEnvironmentComp2.Commands;
-using GraphicsEnvironmentComp2.Factory;
+using System.Drawing;
+using System;
 
-
-namespace GraphicsEnvironmentComp2.Commands
+public class DrawToCommand : ICommandInterface
 {
-    /// <summary>
-    /// The draw to command is to allow the user to draw from the current point to the new specified point
-    /// </summary>
-    public class DrawToCommand : ICommandInterface
+    private readonly string _xParameter;
+    private readonly string _yParameter;
+    private readonly GraphicsContext _GraphicContext;
+    private readonly VariableContext _VariableContext;
+
+    public DrawToCommand(string xParameter, string yParameter, GraphicsContext GraphicContext, VariableContext VariableContext)
     {
-        private Point _endPosition;
-        private readonly GraphicsContext _GraphicContext;
+        _xParameter = xParameter;
+        _yParameter = yParameter;
+        _GraphicContext = GraphicContext;
+        _VariableContext = VariableContext;
+    }
 
-        /// <summary>
-        /// this initialises a new instance of the Drawtocommand with an end position and a graphic context
-        /// </summary>
-        /// <param name="endPosition">This is the end position that should be drawn to </param>
-        /// <param name="GraphicContext">This is the graphics context that maintains the current drawing state </param>
+    public void Execute(Graphics graphics)
+    {
+        int x = TryToParseParameter(_xParameter, _VariableContext);
+        int y = TryToParseParameter(_yParameter, _VariableContext);
 
-        public DrawToCommand(Point endPosition, GraphicsContext GraphicContext)
+        Point newPosition = new Point(x, y);
+
+        graphics.DrawLine(_GraphicContext.CurrentPen, _GraphicContext.CurrentPosition, newPosition);
+        _GraphicContext.UpdatePosition(newPosition);
+    }
+
+    private int TryToParseParameter(string parameter, VariableContext varContext)
+    {
+        if (int.TryParse(parameter, out int value))
         {
-            _endPosition = endPosition;
-            _GraphicContext = GraphicContext;
+            return value;
         }
-
-        /// <summary>
-        /// This executes the drawing line from the current to end position.
-        /// </summary>
-        /// <param name="graphics">The graphics object used for drawing the line</param>
-
-        public void Execute(Graphics graphics)
+        else
         {
-            graphics.DrawLine(_GraphicContext.CurrentPen, _GraphicContext.CurrentPosition, _endPosition); // Draws a line from the current position to the end position
-            _GraphicContext.UpdatePosition(_endPosition); // After drawing, update the current position to the end position
+            return varContext.GetVariable(parameter);
         }
     }
 }
