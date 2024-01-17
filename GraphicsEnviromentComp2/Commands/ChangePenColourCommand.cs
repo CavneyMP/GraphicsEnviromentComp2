@@ -9,9 +9,9 @@ using static GraphicsEnvironmentComp2.Form1;
 
 namespace GraphicsEnvironmentComp2.Commands
 {
-    /
     
-    <summary>
+    
+    ////<summary>
     /// This class represents a command to change the current pen colour that is held in the drawing context to a new colour that the user inputs
     /// </summary>
     public class ChangePenColorCommand : ICommandInterface
@@ -38,7 +38,7 @@ namespace GraphicsEnvironmentComp2.Commands
 
         public void Execute(SafeGraphics safeGraphics)
         {
-            _context.UpdateColour(_newColour);
+            _context.UpdateColor(_newColour);
         }
     }
 }

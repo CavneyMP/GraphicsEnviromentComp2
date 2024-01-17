@@ -26,8 +26,8 @@ namespace Tests
             {
                 using (var dummyGraphics = Graphics.FromImage(dummyBitmap))
                 {
-                    var safeGraphics = new SafeGraphics(dummyGraphics); // Create SafeGraphics object
-                    clearCommand.Execute(safeGraphics); // Execute ClearCommand with SafeGraphics
+                    var safeGraphics = new SafeGraphics(dummyGraphics); 
+                    clearCommand.Execute(safeGraphics); 
                 }
 
                 // Check if the colour of the pixel at (0, 0) matches the expected color

@@ -10,9 +10,9 @@ using GraphicsEnvironmentComp2.GraphicContext;
 
 namespace GraphicsEnvironmentComp2.Factory
 {
-    /
     
-    <summary>
+    
+    ///<summary>
     /// The factory class is responsible for creating the command that is matched from the parsed user input.
     /// It is able to match the input command and passes the parsed parameters to return the relevant command object.
     /// </summary>

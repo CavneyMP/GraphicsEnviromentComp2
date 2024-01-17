@@ -6,8 +6,8 @@ using static GraphicsEnvironmentComp2.Form1;
 
 namespace ASEGraphicAssignment.Commands.Tests
 {
-    /
-    <summary>
+    
+    ///<summary>
     /// Contains tests for Circle Command
     /// </summary>
     [TestClass]

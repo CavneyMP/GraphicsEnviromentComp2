@@ -17,8 +17,8 @@ namespace GraphicsEnvironmentComp2.Commands
             _VariableContext = VariableContext;
         }
 
-        /
-        <summary>
+        
+        ///<summary>
         /// Executes the circle drawing command using the provided SafeGraphics instance.
         /// </summary>
         /// <param name="safeGraphics">SafeGraphics instance for thread-safe drawing.</param>

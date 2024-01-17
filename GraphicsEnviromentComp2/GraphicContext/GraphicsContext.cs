@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace GraphicsEnvironmentComp2.GraphicContext
 {
-    /
-    
-    <summary>
+    /// <summary>
     ///This is a class that is defined to maintain the state necessary for the drawing envrioment, it is to hold drawing position, color and pen settings.
     /// </summary>
     public class GraphicsContext
@@ -26,7 +24,7 @@ namespace GraphicsEnvironmentComp2.GraphicContext
         public GraphicsContext()
         {
             CurrentPosition = new Point(0, 0); // Default position
-            CurrentColor = Color.Black;        // Default colour
+            CurrentColor = Color.Black;        // Default color
             CurrentPen = new Pen(CurrentColor); // Default pen
         }
 
@@ -47,10 +45,10 @@ namespace GraphicsEnvironmentComp2.GraphicContext
         /// </summary>
         /// <param name="newColour"> Needs the colour the user wishes to set to i.e red</param>
 
-        public void UpdateColour(Color newColour)
+        public void UpdateColor(Color newColour)
         {
             CurrentColor = newColour;
-            CurrentPen = new Pen(CurrentColor); // Update the pen when colour changes
+            CurrentPen = new Pen(CurrentColor); // Update the pen when color changes
         }
 
         /// <summary>
@@ -59,7 +57,7 @@ namespace GraphicsEnvironmentComp2.GraphicContext
         public void Reset()
         {
             CurrentPosition = new Point(0, 0); // Reset to default position
-            UpdateColour(Color.Black);          // Reset colour
+            UpdateColor(Color.Black);          // Reset color
         }
     }
 }

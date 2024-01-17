@@ -6,10 +6,7 @@ using static GraphicsEnvironmentComp2.Form1;
 
 namespace GraphicsEnvironmentComp2.Commands
 {
-
-    /
-    
-    <summary>
+    //<summary>
     /// A class to change the value of a stored variable by simple operators
     /// </summary>
     public class ChangeVariableCommand : ICommandInterface

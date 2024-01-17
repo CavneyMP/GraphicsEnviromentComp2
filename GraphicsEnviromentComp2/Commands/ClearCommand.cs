@@ -4,9 +4,7 @@ using static GraphicsEnvironmentComp2.Form1;
 
 public class ClearCommand : ICommandInterface
 {
-    /
-    
-    <summary>
+    ///<summary>
     /// A class to instantiate the logic for the clear command that should reset all pixel 
     /// to 244, 244, 244 which is the canvas colour from VS propertys, effectively clearing the canvas.
     /// </summary>
