@@ -14,7 +14,7 @@ namespace GraphicsEnvironmentComp2.Commands
 
         public LoopCommand(int iterations)
         {
-            _iterations = iterations;
+            _iterations = iterations; // assign the private fields to the variable passed when command is called
             _commands = new List<ICommandInterface>();
         }
 

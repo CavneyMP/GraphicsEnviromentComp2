@@ -61,6 +61,8 @@
     <Compile Include="Commands\ClearCommandTests.cs" />
     <Compile Include="Commands\DrawToCommandTests.cs" />
     <Compile Include="Commands\EndIfCommandTests.cs" />
+    <Compile Include="Commands\IfCommandTests.cs" />
+    <Compile Include="Commands\LoopCommandTests.cs" />
     <Compile Include="Commands\MoveToCommandTests.cs" />
     <Compile Include="Commands\ResetCommandTests.cs" />
     <Compile Include="Commands\SquareCommandTests.cs" />

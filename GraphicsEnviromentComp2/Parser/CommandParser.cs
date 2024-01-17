@@ -94,19 +94,26 @@ namespace GraphicsEnvironmentComp2.Parser
             {
                 if (_currentLoop != null)
                 {
+                    // Here we check if the loop is crrently open
                     LoopCommand completedLoop = _currentLoop;
+                    // Here we assign the current loop to a temporary variable called completed loop
                     _currentLoop = null;
+                    // This represents the loop that has just ended
                     return completedLoop;
                 }
                 else
                 {
+                    // No matching open loop means we need to throw an exception
                     throw new CustomArgumentException(" Tech message XXXX", "No matching 'loop' command found for 'endloop'.");
                 }
             }
-            else if (_currentLoop != null)
+            else if (_currentLoop != null) // Is not null, we are in loop.
             {
+                // Create a new command based on the command name, pass parameters as arugments.
                 ICommandInterface commandToAdd = CommandFactory.GetCommand(command, tokens.Skip(1).ToArray(), multiLineContent, _variableContext);
+                // Add the created command to the currently open loop
                 _currentLoop.AddCommand(commandToAdd);
+                // placeholder  to do nothing, as this section does not actually have a return value. 
                 return new NoOpCommand();
             }
             else if (command == "if")
