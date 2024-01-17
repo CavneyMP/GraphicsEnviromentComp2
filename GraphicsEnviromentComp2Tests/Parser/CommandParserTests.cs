@@ -6,7 +6,8 @@ using System.Linq;
 
 namespace GraphicsEnvironmentComp2.Tests
 {
-    /// <summary>
+    /
+    <summary>
     /// Test class for the command parser
     /// </summary>
     [TestClass()]

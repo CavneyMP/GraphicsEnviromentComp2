@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using static GraphicsEnvironmentComp2.Form1;
 
 namespace GraphicsEnvironmentComp2.Commands
 {
@@ -33,11 +34,11 @@ namespace GraphicsEnvironmentComp2.Commands
 
 
         /// <summary>
-        /// Executes invoking the method
+        /// Executes invoking of the method
         /// </summary>
         /// <param name="graphics">The graphics object for drawing</param>
         /// <exception cref="ArgumentException">Exception thrown</exception>
-        public void Execute(Graphics graphics)
+        public void Execute(SafeGraphics safeGraphics)
         {
             if (_method.Parameters.Count != _arguments.Count)
             {
@@ -57,7 +58,7 @@ namespace GraphicsEnvironmentComp2.Commands
 
             foreach (var command in _method.Commands)
             {
-                command.Execute(graphics);
+                command.Execute(safeGraphics);
             }
 
             foreach (var param in _method.Parameters)

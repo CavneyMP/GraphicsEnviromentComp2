@@ -2,6 +2,7 @@
 using GraphicsEnvironmentComp2.GraphicContext;
 using System.Drawing;
 using System;
+using static GraphicsEnvironmentComp2.Form1;
 
 public class DrawToCommand : ICommandInterface
 {
@@ -18,16 +19,22 @@ public class DrawToCommand : ICommandInterface
         _VariableContext = VariableContext;
     }
 
-    public void Execute(Graphics graphics)
+    /// <summary>
+    /// Executes the DrawToCommand using the provided SafeGraphics instance.
+    /// </summary>
+    /// <param name="safeGraphics">SafeGraphics instance for thread-safe drawing.</param>
+    public void Execute(SafeGraphics safeGraphics)
     {
         int x = TryToParseParameter(_xParameter, _VariableContext);
         int y = TryToParseParameter(_yParameter, _VariableContext);
-        Console.WriteLine($"Drawing to position ({x}, {y})"); // Debugging comment
-
 
         Point newPosition = new Point(x, y);
 
-        graphics.DrawLine(_GraphicContext.CurrentPen, _GraphicContext.CurrentPosition, newPosition);
+        safeGraphics.Execute(graphics =>
+        {
+            graphics.DrawLine(_GraphicContext.CurrentPen, _GraphicContext.CurrentPosition, newPosition);
+        });
+
         _GraphicContext.UpdatePosition(newPosition);
     }
 

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using GraphicsEnvironmentComp2.GraphicContext;
 using GraphicsEnvironmentComp2.Commands;
 using GraphicsEnvironmentComp2.Factory;
+using static GraphicsEnvironmentComp2.Form1;
 
 namespace GraphicsEnvironmentComp2.Commands
 {
@@ -21,7 +22,7 @@ namespace GraphicsEnvironmentComp2.Commands
             /// Performs no operation.
             /// </summary>
             /// <param name="graphics">Graphics context which is not used in this command.</param>
-            public void Execute(Graphics graphics)
+            public void Execute(SafeGraphics safeGraphics)
             {
                 // Nothing is done intentionally. 
             }

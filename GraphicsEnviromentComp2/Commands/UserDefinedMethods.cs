@@ -14,7 +14,7 @@ namespace GraphicsEnvironmentComp2
         /// </summary>
         public string MethodName { get; }
         /// <summary>
-        /// List of parameters for methd
+        /// List of parameters for method
         /// </summary>
         public List<string> Parameters { get; }
 

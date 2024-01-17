@@ -10,7 +10,9 @@ using GraphicsEnvironmentComp2.Parser;
 
 namespace GraphicsEnvironmentComp2.Helpers
 {
-    /// <summary>
+    /
+    
+    <summary>
     /// All the helper methods, that are used by the parser
     /// </summary>
 

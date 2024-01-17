@@ -10,7 +10,9 @@ using System.Linq;
 
 namespace GraphicsEnvironmentComp2.Parser
 {
-    /// <summary>
+    /
+    
+    <summary>
     /// Parses user commands and generates appropriate command objects.
     /// </summary>
     public class CommandParser

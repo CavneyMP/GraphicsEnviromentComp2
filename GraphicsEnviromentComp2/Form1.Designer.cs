@@ -2,7 +2,9 @@
 {
     partial class Form1
     {
-        /// <summary>
+        
+        
+        / <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
@@ -35,7 +37,7 @@
             this.Singleline = new System.Windows.Forms.TextBox();
             this.GraphicPanel = new System.Windows.Forms.Panel();
             this.MultiLineRunBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.MultiLineBoth = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -97,15 +99,15 @@
             this.MultiLineRunBtn.UseVisualStyleBackColor = true;
             this.MultiLineRunBtn.Click += new System.EventHandler(this.MultiLineRunBtn_Click);
             // 
-            // textBox1
+            // MultiLineBoth
             // 
-            this.textBox1.Location = new System.Drawing.Point(861, 24);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(763, 1225);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.TextChanged += new System.EventHandler(this.MultiLineBoth_TextChanged);
+            this.MultiLineBoth.Location = new System.Drawing.Point(861, 24);
+            this.MultiLineBoth.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.MultiLineBoth.Multiline = true;
+            this.MultiLineBoth.Name = "MultiLineBoth";
+            this.MultiLineBoth.Size = new System.Drawing.Size(763, 1225);
+            this.MultiLineBoth.TabIndex = 6;
+            this.MultiLineBoth.TextChanged += new System.EventHandler(this.MultiLineBoth_TextChanged);
             // 
             // button1
             // 
@@ -125,7 +127,7 @@
             this.BackColor = System.Drawing.Color.SlateGray;
             this.ClientSize = new System.Drawing.Size(3575, 1745);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.MultiLineBoth);
             this.Controls.Add(this.MultiLineRunBtn);
             this.Controls.Add(this.GraphicPanel);
             this.Controls.Add(this.Singleline);
@@ -148,7 +150,7 @@
         private System.Windows.Forms.TextBox Singleline;
         private System.Windows.Forms.Panel GraphicPanel;
         private System.Windows.Forms.Button MultiLineRunBtn;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox MultiLineBoth;
         private System.Windows.Forms.Button button1;
     }
 }

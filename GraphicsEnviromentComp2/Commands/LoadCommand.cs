@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static GraphicsEnvironmentComp2.Form1;
 
 namespace GraphicsEnvironmentComp2.Commands
 {
@@ -29,7 +30,7 @@ namespace GraphicsEnvironmentComp2.Commands
         /// Executes the command to load content from the file.
         /// </summary>
         /// <param name="graphics">Graphics context not used.</param>
-        public void Execute(Graphics graphics)
+        public void Execute(SafeGraphics safeGraphics)
         {
             // Check the file exists
             if (!File.Exists(_filePath))

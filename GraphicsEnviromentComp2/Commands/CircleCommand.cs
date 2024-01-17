@@ -1,23 +1,15 @@
 ﻿using GraphicsEnvironmentComp2.GraphicContext;
 using System.Drawing;
+using static GraphicsEnvironmentComp2.Form1;
 
 namespace GraphicsEnvironmentComp2.Commands
 {
-    /// <summary>
-    /// This class allows the user to draw a circle by calling the command.
-    /// </summary>
     public class CircleCommand : ICommandInterface
     {
         private readonly string _radiusParameter;
         private readonly GraphicsContext _context;
         private readonly VariableContext _VariableContext;
 
-        /// <summary>
-        /// Initializes a new instance of the CircleCommand class.
-        /// </summary>
-        /// <param name="radiusParameter">The requested radius of the circle as a string, which can be a numeric value or a variable name.</param>
-        /// <param name="context">The graphics context that holds current drawing data.</param>
-        /// <param name="VariableContext">The context for resolving variable values.</param>
         public CircleCommand(string radiusParameter, GraphicsContext context, VariableContext VariableContext)
         {
             _radiusParameter = radiusParameter;
@@ -25,18 +17,22 @@ namespace GraphicsEnvironmentComp2.Commands
             _VariableContext = VariableContext;
         }
 
-        /// <summary>
-        /// Executes the circle drawing command on the existing graphics.
+        /
+        <summary>
+        /// Executes the circle drawing command using the provided SafeGraphics instance.
         /// </summary>
-        /// <param name="graphics">The existing graphics to draw on.</param>
-        public void Execute(Graphics graphics)
+        /// <param name="safeGraphics">SafeGraphics instance for thread-safe drawing.</param>
+        public void Execute(SafeGraphics safeGraphics)
         {
             int radius = TryToParseParameter(_radiusParameter, _VariableContext);
             int diameter = radius * 2;
             int topLeftX = _context.CurrentPosition.X - radius;
             int topLeftY = _context.CurrentPosition.Y - radius;
 
-            graphics.DrawEllipse(new Pen(_context.CurrentColor), topLeftX, topLeftY, diameter, diameter);
+            safeGraphics.Execute(graphics =>
+            {
+                graphics.DrawEllipse(new Pen(_context.CurrentColor), topLeftX, topLeftY, diameter, diameter);
+            });
         }
 
         private int TryToParseParameter(string parameter, VariableContext varContext)

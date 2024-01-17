@@ -2,7 +2,8 @@
 
 namespace GraphicsEnviromentComp2.CustomException
 {
-    /// <summary>
+    /
+    <summary>
     /// A custom exception class derived from ArgumentException. It is used to handle exceptions 
     /// specific to the application, providing a message that is suitable for end users.
     /// </summary>

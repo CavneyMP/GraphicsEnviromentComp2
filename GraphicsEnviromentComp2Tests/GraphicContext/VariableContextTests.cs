@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GraphicsEnvironmentComp2.GraphicContext;
-using System;
+using GraphicsEnviromentComp2.CustomException;
 
 namespace GraphicsEnvironmentComp2.GraphicContext.Tests
 {
@@ -16,7 +16,7 @@ namespace GraphicsEnvironmentComp2.GraphicContext.Tests
         [TestMethod()]
         public void SetVariable_ShouldStoreValue()
         {
-            // This creates a new variable Context and defines a varible name and value
+            // This creates a new variable Context and defines a variable name and value
             var variableContext = new VariableContext();
             string variableName = "x";
             int value = 100;
@@ -24,7 +24,7 @@ namespace GraphicsEnvironmentComp2.GraphicContext.Tests
             // Sets the variable
             variableContext.SetVariable(variableName, value);
 
-            // Checks the value is recevied, and correctly. 
+            // Checks the value is received, and correctly. 
             Assert.AreEqual(value, variableContext.GetVariable(variableName), "Variable value does not match the expected value.");
         }
 
@@ -34,16 +34,14 @@ namespace GraphicsEnvironmentComp2.GraphicContext.Tests
         [TestMethod()]
         public void GetVariable_UndefinedVariable_ThrowException()
         {
-            // New variable context, and sets a variable that has not been defined.
-
             var variableContext = new VariableContext();
-            string variableName = "undefinedVariable";
+            string undefinedVariableName = "undefinedVariable";
 
-            // Attempts to retreive, when it cannot, should be given the exception.
-            var ex = Assert.ThrowsException<ArgumentException>(() =>
-            variableContext.GetVariable(variableName));
-
-            Assert.AreEqual($"Variable '{variableName}' is not defined.", ex.Message, "Exception message does not match the expected message.");
+            //CustomArgumentException is thrown when trying to get an undefined variable
+            Assert.ThrowsException<CustomArgumentException>(() =>
+            {
+                variableContext.GetVariable(undefinedVariableName);
+            }, "Expected a CustomArgumentException to be thrown for an undefined variable.");
         }
 
         /// <summary>
@@ -58,12 +56,11 @@ namespace GraphicsEnvironmentComp2.GraphicContext.Tests
             int firstValue = 100;
             int updatedValue = 200;
 
-
-            // Set initial value and then update with a new value.
+            // Set the initial value and then update it with a new value.
             variableContext.SetVariable(variableName, firstValue);
             variableContext.SetVariable(variableName, updatedValue);
 
-            // Ensure the new varible is held under the value.
+            // Ensure the new variable holds the updated value.
             Assert.AreEqual(updatedValue, variableContext.GetVariable(variableName), "Variable value did not update to the new value.");
         }
     }

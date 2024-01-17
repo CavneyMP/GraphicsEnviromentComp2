@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
+using static GraphicsEnvironmentComp2.Form1;
 
 namespace GraphicsEnvironmentComp2.Commands
 {
-
     /// <summary>
-    /// The loop loop command is what is responsible for generating loops which can contain a set of commands to occur recursively 
+    /// The LoopCommand is responsible for generating loops which can contain a set of commands to be executed recursively.
     /// </summary>
     public class LoopCommand : ICommandInterface
     {
-        private readonly int _iterations; // private integer to store a value passed from input to specify desired amounts to run the loop
-        private readonly List<ICommandInterface> _commands; // a list to hold the commands that are found in said loop
-
+        private readonly int _iterations; // private integer to store the value passed from input to specify desired number of iterations
+        private readonly List<ICommandInterface> _commands; // a list to hold the commands that are found in the loop
 
         public LoopCommand(int iterations)
         {
@@ -20,31 +18,28 @@ namespace GraphicsEnvironmentComp2.Commands
             _commands = new List<ICommandInterface>();
         }
 
-
         /// <summary>
-        /// The add command is responsible for adding commands to the list. 
+        /// Adds a command to the list of commands to be executed in the loop.
         /// </summary>
-        /// <param name="command">The command to add</param>
+        /// <param name="command">The command to add.</param>
         public void AddCommand(ICommandInterface command)
         {
             _commands.Add(command);
         }
 
         /// <summary>
-        /// Execution method to execute all commands in the loop, a set amount of times 
+        /// Executes all commands in the loop for a set number of iterations.
         /// </summary>
-        /// <param name="graphics">The graphics object used for drawing</param>
-
-        public void Execute(Graphics graphics)
+        /// <param name="safeGraphics">The SafeGraphics object used for thread-safe drawing.</param>
+        public void Execute(SafeGraphics safeGraphics)
         {
-            for (int i = 0; i < _iterations; i++) // Increases variable  by one until it reaches value of iterations
+            for (int i = 0; i < _iterations; i++) // Loops through the number of iterations
             {
-                foreach (var command in _commands) // for each command in the list
+                foreach (var command in _commands) // For each command in the list
                 {
-                    command.Execute(graphics); // execute 
+                    command.Execute(safeGraphics); // Execute the command using SafeGraphics
                 }
             }
         }
-
     }
 }

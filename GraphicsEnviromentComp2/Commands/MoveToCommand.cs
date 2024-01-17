@@ -1,6 +1,7 @@
 ﻿using GraphicsEnvironmentComp2.GraphicContext;
 using System;
 using System.Drawing;
+using static GraphicsEnvironmentComp2.Form1;
 
 namespace GraphicsEnvironmentComp2.Commands
 {
@@ -33,7 +34,7 @@ namespace GraphicsEnvironmentComp2.Commands
         /// Executes the MoveToCommand, updating the graphic context with the new position.
         /// </summary>
         /// <param name="graphics">The graphics object (not used in this command).</param>
-        public void Execute(Graphics graphics)
+        public void Execute(SafeGraphics safeGraphics)
         {
             int x = TryToParseParameter(_xParameter, _VariableContext);
             int y = TryToParseParameter(_yParameter, _VariableContext);

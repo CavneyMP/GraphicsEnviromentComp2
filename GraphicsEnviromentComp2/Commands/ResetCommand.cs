@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 using GraphicsEnvironmentComp2.GraphicContext;
 using GraphicsEnvironmentComp2.Commands;
 using GraphicsEnvironmentComp2.Factory;
-
-
+using static GraphicsEnvironmentComp2.Form1;
 
 namespace GraphicsEnvironmentComp2.Commands
 {
@@ -35,7 +34,7 @@ namespace GraphicsEnvironmentComp2.Commands
         /// This executes the command, resetting the cursor position in the graphic context to the orgin back to 0, 0 which is the far top left 
         /// </summary>
         /// <param name="graphics"></param>
-        public void Execute(Graphics graphics)
+        public void Execute(SafeGraphics safeGraphics)
         {
             _GraphicContext.Reset();
         }

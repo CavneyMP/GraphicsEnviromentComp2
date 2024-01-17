@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using GraphicsEnvironmentComp2; // Ensure SafeGraphics is accessible
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraphicsEnvironmentComp2.Commands
 {
     /// <summary>
-    /// Here we are creating an interface which will serve as a template for all other commands
-    /// This will allow for easier expansion onto assignment two and ensures all methods execute the operations in a linear fashion
+    /// Interface serving as a template for all commands.
+    /// Ensures all methods execute the operations in a linear fashion.
     /// </summary>
     public interface ICommandInterface
     {
         /// <summary>
-        /// Command will execte using the graphics context. The command will preform what is set in its own class.
+        /// Executes the command using the provided SafeGraphics instance.
         /// </summary>
-        /// <param name="graphics">Graphics context to be carried out</param>
-        void Execute(Graphics graphics);
+        /// <param name="safeGraphics">SafeGraphics instance for thread-safe drawing.</param>
+        void Execute(Form1.SafeGraphics safeGraphics);
     }
 }

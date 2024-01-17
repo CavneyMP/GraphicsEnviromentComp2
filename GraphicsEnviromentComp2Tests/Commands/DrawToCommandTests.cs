@@ -2,6 +2,7 @@
 using GraphicsEnvironmentComp2.Commands;
 using GraphicsEnvironmentComp2.GraphicContext;
 using System.Drawing;
+using static GraphicsEnvironmentComp2.Form1;
 
 namespace GraphicsEnvironmentComp2.Commands.Tests
 {
@@ -11,7 +12,6 @@ namespace GraphicsEnvironmentComp2.Commands.Tests
         [TestMethod()]
         public void DrawToCommandTest()
         {
-
             var graphicsContext = new GraphicsContext();
             var variableContext = new VariableContext();
             string xParameter = "10";
@@ -21,10 +21,11 @@ namespace GraphicsEnvironmentComp2.Commands.Tests
             using (var dummyBitmap = new Bitmap(100, 100))
             using (var dummyGraphics = Graphics.FromImage(dummyBitmap))
             {
-                drawToCommand.Execute(dummyGraphics);
+                var safeGraphics = new SafeGraphics(dummyGraphics); 
+                drawToCommand.Execute(safeGraphics);
             }
 
-            var targetPosition = new Point(10, 10); // The expected position after drawing
+            var targetPosition = new Point(10, 10);
             Assert.AreEqual(targetPosition, graphicsContext.CurrentPosition, "The Graphic contexts position has not updated when draw command called");
         }
     }

@@ -10,7 +10,9 @@ using GraphicsEnvironmentComp2.GraphicContext;
 
 namespace GraphicsEnvironmentComp2.Factory
 {
-    /// <summary>
+    /
+    
+    <summary>
     /// The factory class is responsible for creating the command that is matched from the parsed user input.
     /// It is able to match the input command and passes the parsed parameters to return the relevant command object.
     /// </summary>
@@ -19,11 +21,11 @@ namespace GraphicsEnvironmentComp2.Factory
         private static readonly GraphicsContext _GraphicContext = new GraphicsContext();
 
         /// <summary>
-        /// This method attempts to interpret a parameter as an integer, or retreives its value from the varaible context, if it is already present in the dictionairy. 
+        /// This method attempts to interpret a parameter as an integer, or retrieves its value from the variable context, if it is already present in the dictionary. 
         /// </summary>
         /// <param name="parameter"> The interpretated parameter</param>
-        /// <param name="varContext"> This is the context containing the varaible values</param>
-        /// <returns> The paired integer to the variable name from the varaible context</returns>
+        /// <param name="varContext"> This is the context containing the variable values</param>
+        /// <returns> The paired integer to the variable name from the variable context</returns>
         private static int TryToParseParameter(string parameter, VariableContext varContext)
         {
             if (int.TryParse(parameter, out int value))
@@ -37,12 +39,12 @@ namespace GraphicsEnvironmentComp2.Factory
         }
 
         /// <summary>
-        /// This method holds all the logic to carry out each command, it matchs the user input and returns the relevant command object.
+        /// This method holds all the logic to carry out each command, it matches the user input and returns the relevant command object.
         /// </summary>
         /// <param name="command"> The command name input by the user</param>
         /// <param name="parameters"> The parameters parsed from input to pass to the new object</param>
         /// <param name="multiLineContent"> When multi line is used, this will hold the content</param>
-        /// <param name="variableContext"> Context containing the varaible values</param>
+        /// <param name="variableContext"> Context containing the variable values</param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
         public static ICommandInterface GetCommand(string command, string[] parameters, string multiLineContent, VariableContext variableContext)

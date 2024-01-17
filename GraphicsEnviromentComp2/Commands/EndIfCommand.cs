@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using static GraphicsEnvironmentComp2.Form1;
 
 namespace GraphicsEnvironmentComp2.Commands
 {
@@ -8,7 +9,7 @@ namespace GraphicsEnvironmentComp2.Commands
     /// </summary>
     public class EndIfCommand : ICommandInterface
     {
-        public void Execute(Graphics graphics)
+        public void Execute(SafeGraphics safeGraphics)
         {
             // Reset the flag
             IfCommand.ResetExecutionFlag();

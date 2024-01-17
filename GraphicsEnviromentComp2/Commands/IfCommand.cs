@@ -2,6 +2,8 @@
 using System;
 using System.Drawing;
 using GraphicsEnvironmentComp2.GraphicContext;
+using static GraphicsEnvironmentComp2.Form1;
+
 
 namespace GraphicsEnvironmentComp2.Commands
 {
@@ -52,7 +54,7 @@ namespace GraphicsEnvironmentComp2.Commands
         /// <param name="graphics">The graphics context, holding the graphical state</param>
         /// <exception cref="ArgumentException"></exception>
 
-        public void Execute(Graphics graphics)
+        public void Execute(SafeGraphics safeGraphics)
         {
             string[] parts = _condition.Split(' ');
             if (parts.Length == 3)

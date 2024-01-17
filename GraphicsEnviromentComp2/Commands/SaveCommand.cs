@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static GraphicsEnvironmentComp2.Form1;
 
 namespace GraphicsEnvironmentComp2.Commands
 {
@@ -31,7 +32,7 @@ namespace GraphicsEnvironmentComp2.Commands
         /// This executes the command, which uses the IO libary to write the data.
         /// </summary>
         /// <param name="graphics"> Graphics context is not used</param>
-        public void Execute(Graphics graphics)
+        public void Execute(SafeGraphics safeGraphics)
         {
             File.WriteAllText(_filePath, _contentToSave);
         }

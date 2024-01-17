@@ -2,12 +2,15 @@
 using GraphicsEnvironmentComp2.GraphicContext;
 using System;
 using System.Drawing;
+using static GraphicsEnvironmentComp2.Form1;
 
 namespace GraphicsEnvironmentComp2.Commands
 {
 
-    /// <summary>
-    /// A class to change the value of a stored varaible by simple operators
+    /
+    
+    <summary>
+    /// A class to change the value of a stored variable by simple operators
     /// </summary>
     public class ChangeVariableCommand : ICommandInterface
     {
@@ -28,7 +31,7 @@ namespace GraphicsEnvironmentComp2.Commands
         /// </summary>
         /// <param name="graphics"></param>
         /// <exception cref="ArgumentException"></exception>
-        public void Execute(Graphics graphics)
+        public void Execute(SafeGraphics safeGraphics)
         {
 
             if (!_variableContext.VariableExists(_variableName))

@@ -1,35 +1,33 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
+using GraphicsEnvironmentComp2.Commands;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static GraphicsEnvironmentComp2.Form1;
 
 namespace Tests
 {
     /// <summary>
-    /// Contains Tests for clear Command
+    /// Contains Tests for Clear Command
     /// </summary>
     [TestClass()]
     public class ClearCommandTests
     {
         /// <summary>
-        /// This tests is to see if the clear command changes the display pixes back to default.
+        /// This test is to see if the ClearCommand changes the display pixels back to default.
         /// </summary>
         [TestMethod()]
         public void Execute_ShouldClearCanvasWithSpecificColor()
         {
-            // Here we are creating a new instance of the clear command and assigning the background colour to a variable
+            // Create a new instance of the ClearCommand
             var clearCommand = new ClearCommand();
-            var expectedColour = Color.FromArgb(224, 224, 224);
+            var expectedColour = Color.FromArgb(224, 224, 224); // Background colour
 
             // Create a new bitmap to test
             using (var dummyBitmap = new Bitmap(100, 100))
             {
                 using (var dummyGraphics = Graphics.FromImage(dummyBitmap))
                 {
-                    clearCommand.Execute(dummyGraphics); // Using the dummy Graphics object
+                    var safeGraphics = new SafeGraphics(dummyGraphics); // Create SafeGraphics object
+                    clearCommand.Execute(safeGraphics); // Execute ClearCommand with SafeGraphics
                 }
 
                 // Check if the colour of the pixel at (0, 0) matches the expected color

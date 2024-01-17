@@ -1,5 +1,6 @@
 ﻿using GraphicsEnvironmentComp2.GraphicContext;
 using System.Drawing;
+using static GraphicsEnvironmentComp2.Form1;
 
 namespace GraphicsEnvironmentComp2.Commands
 {
@@ -31,16 +32,24 @@ namespace GraphicsEnvironmentComp2.Commands
         /// <summary>
         /// Executes the SquareCommand, drawing a square on the existing graphics.
         /// </summary>
-        /// <param name="graphics">The existing graphics to draw on.</param>
-        public void Execute(Graphics graphics)
+        /// <param name="safeGraphics">The SafeGraphics instance to draw on.</param>
+        public void Execute(SafeGraphics safeGraphics)
         {
             int width = TryToParseParameter(_widthParameter, _VariableContext);
             int height = TryToParseParameter(_heightParameter, _VariableContext);
             Point currentPosition = _context.CurrentPosition;
 
-            graphics.DrawRectangle(new Pen(_context.CurrentColor), currentPosition.X, currentPosition.Y, width, height);
+            safeGraphics.Execute(graphics =>
+            {
+                graphics.DrawRectangle(new Pen(_context.CurrentColor), currentPosition.X, currentPosition.Y, width, height);
+            });
         }
-
+        /// <summary>
+        /// Parses the parameters from variable context to int.
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <param name="varContext"></param>
+        /// <returns></returns>
         private int TryToParseParameter(string parameter, VariableContext varContext)
         {
             if (int.TryParse(parameter, out int value))

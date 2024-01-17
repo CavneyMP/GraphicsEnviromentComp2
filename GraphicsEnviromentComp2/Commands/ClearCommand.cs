@@ -1,16 +1,14 @@
 ﻿using GraphicsEnvironmentComp2.Commands;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static GraphicsEnvironmentComp2.Form1;
 
 public class ClearCommand : ICommandInterface
 {
-
-    /// <summary>
-    /// A class to instantiate the logic for the clear command that should reset all pixel to 244, 244, 244 which is the canvas colour from VS propertys, effectivly clearing the canvas.
+    /
+    
+    <summary>
+    /// A class to instantiate the logic for the clear command that should reset all pixel 
+    /// to 244, 244, 244 which is the canvas colour from VS propertys, effectively clearing the canvas.
     /// </summary>
     public ClearCommand()
     {
@@ -18,13 +16,14 @@ public class ClearCommand : ICommandInterface
     }
 
     /// <summary>
-    /// 
+    /// Clears the canvas to the form background colour.
     /// </summary>
-    /// <param name="graphics"></param>
-    public void Execute(Graphics graphics)
+    /// <param name="safeGraphics">SafeGraphics instance for thread-safe drawing.</param>
+    public void Execute(SafeGraphics safeGraphics)
     {
-        graphics.Clear(Color.FromArgb(224, 224, 224)); // Set canvas to the form background colour. 
+        safeGraphics.Execute(graphics =>
+        {
+            graphics.Clear(Color.FromArgb(224, 224, 224)); // Set canvas to the form background colour.
+        });
     }
 }
-
-

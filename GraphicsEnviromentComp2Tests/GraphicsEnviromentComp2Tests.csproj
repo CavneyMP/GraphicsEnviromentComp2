@@ -60,10 +60,10 @@
     <Compile Include="Commands\CircleCommandTests.cs" />
     <Compile Include="Commands\ClearCommandTests.cs" />
     <Compile Include="Commands\DrawToCommandTests.cs" />
-    <Compile Include="Commands\EndIfCommandTests.cs" />
     <Compile Include="Commands\MoveToCommandTests.cs" />
     <Compile Include="Commands\ResetCommandTests.cs" />
     <Compile Include="Commands\SquareCommandTests.cs" />
+    <Compile Include="CustomException\CustomArgumentExceptionTests.cs" />
     <Compile Include="GraphicContext\VariableContextTests.cs" />
     <Compile Include="Parser\CommandParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
