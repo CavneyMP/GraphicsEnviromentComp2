@@ -63,13 +63,15 @@ namespace GraphicsEnvironmentComp2.Factory
                     }
 
                 case "moveto":
-                    if (parameters.Length == 2
-                        && int.TryParse(parameters[0], out int moveX)
-                        && int.TryParse(parameters[1], out int moveY))
+                    if (parameters.Length == 2)
                     {
-                        return new MoveToCommand(new Point(moveX, moveY), _GraphicContext);
+                        return new MoveToCommand(parameters[0], parameters[1], _GraphicContext, variableContext);
                     }
-                    throw new CustomArgumentException(" Tech message XXXX","MoveTo command requires 2 integer parameters: x and y coordinates.");
+                    else
+                    {
+                        throw new CustomArgumentException("Tech message XXXX", "MoveTo command requires two parameters: x and y coordinates (either as integers or variable names).");
+                    }
+
 
                 case "clear":
                     return new ClearCommand();
@@ -82,21 +84,20 @@ namespace GraphicsEnvironmentComp2.Factory
                     throw new CustomArgumentException(" Tech message XXXX","Save command requires a file path parameter.");
 
                 case "circle":
-                    if (parameters.Length == 1 && int.TryParse(parameters[0], out int radius))
+                    if (parameters.Length == 1)
                     {
-                        return new CircleCommand(radius, _GraphicContext);
+                        return new CircleCommand(parameters[0], _GraphicContext, variableContext);
                     }
-                    throw new CustomArgumentException(" Tech message XXXX","Circle command requires one integer parameter: radius.");
+                    throw new CustomArgumentException("Tech message XXXX", "Circle command requires one parameter: radius (either as an integer or a variable name).");
 
 
                 case "square":
-                    if (parameters.Length == 2
-                        && int.TryParse(parameters[0], out int width)
-                        && int.TryParse(parameters[1], out int height))
+                    if (parameters.Length == 2)
                     {
-                        return new SquareCommand(width, height, _GraphicContext);
+                        return new SquareCommand(parameters[0], parameters[1], _GraphicContext, variableContext);
                     }
-                    throw new CustomArgumentException(" Tech message XXXX","Square command requires two integers to represent the width and height.");
+                    throw new CustomArgumentException("Tech message XXXX", "Square command requires two parameters: width and height (either as integers or variable names).");
+
 
                 case "changecolour":
                     if (parameters.Length == 1)

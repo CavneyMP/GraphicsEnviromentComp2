@@ -1,42 +1,65 @@
 ﻿using GraphicsEnvironmentComp2.GraphicContext;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraphicsEnvironmentComp2.Commands
 {
-
     /// <summary>
-    /// The MoveToCommand class inherits the IcommandInterface and is there to allow the user to move the cursor of the which the pen is at.
+    /// The MoveToCommand class inherits the ICommandInterface and is used to move the cursor to a new position.
     /// </summary>
     public class MoveToCommand : ICommandInterface
     {
-        private Point _newPosition;
+        private readonly string _xParameter;
+        private readonly string _yParameter;
         private readonly GraphicsContext _GraphicContext;
+        private readonly VariableContext _VariableContext;
 
         /// <summary>
-        /// Ths initializes a new instance of the MoveToCommand with the graphic context and a new specified position
+        /// Initializes a new instance of the MoveToCommand with the graphic context and specified position parameters.
         /// </summary>
-        /// <param name="newPosition">The new x, y position to move to</param>
-        /// <param name="GraphicContext"> The graphics context that maintains the current state of the panel </param>
-        public MoveToCommand(Point newPosition, GraphicsContext GraphicContext)
+        /// <param name="xParameter">The x-coordinate as a string, which can be a numeric value or a variable name.</param>
+        /// <param name="yParameter">The y-coordinate as a string, which can be a numeric value or a variable name.</param>
+        /// <param name="GraphicContext">The graphics context that maintains the current state of the panel.</param>
+        /// <param name="VariableContext">The context for resolving variable values.</param>
+        public MoveToCommand(string xParameter, string yParameter, GraphicsContext GraphicContext, VariableContext VariableContext)
         {
-            _newPosition = newPosition;
+            _xParameter = xParameter;
+            _yParameter = yParameter;
             _GraphicContext = GraphicContext;
+            _VariableContext = VariableContext;
         }
+
         /// <summary>
-        /// this is the execution method of the icommandInterface which updates the graphic context.
+        /// Executes the MoveToCommand, updating the graphic context with the new position.
         /// </summary>
-        /// <param name="graphics">The graphics object thats needed but is not used here</param>
+        /// <param name="graphics">The graphics object (not used in this command).</param>
         public void Execute(Graphics graphics)
         {
+            int x = TryToParseParameter(_xParameter, _VariableContext);
+            int y = TryToParseParameter(_yParameter, _VariableContext);
+
+            Point newPosition = new Point(x, y);
+
             // Update the current position in the drawing context
-            _GraphicContext.UpdatePosition(_newPosition);
+            _GraphicContext.UpdatePosition(newPosition);
+        }
 
-
+        /// <summary>
+        /// Tries to parse a parameter as an integer or resolves it as a variable.
+        /// </summary>
+        /// <param name="parameter">The parameter to parse.</param>
+        /// <param name="varContext">The variable context for resolving variables.</param>
+        /// <returns>The resolved integer value of the parameter.</returns>
+        private int TryToParseParameter(string parameter, VariableContext varContext)
+        {
+            if (int.TryParse(parameter, out int value))
+            {
+                return value;
+            }
+            else
+            {
+                return varContext.GetVariable(parameter);
+            }
         }
     }
 }

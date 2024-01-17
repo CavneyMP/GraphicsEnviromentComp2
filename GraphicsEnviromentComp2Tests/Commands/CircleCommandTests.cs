@@ -18,10 +18,14 @@ namespace ASEGraphicAssignment.Commands.Tests
         [TestMethod]
         public void CircleCommand_DrawsCircleCorrectly()
         {
-            int radius = 50;
+            string radius = "50"; // Radius as a string
             var context = new GraphicsContext();
             context.UpdatePosition(new Point(100, 100)); // Set the center of the circle
-            var command = new CircleCommand(radius, context);
+
+            // Create a dummy VariableContext, it could be a real implementation or a mock depending on your setup
+            var variableContext = new VariableContext(); // Replace with actual implementation or mock
+
+            var command = new CircleCommand(radius, context, variableContext);
             var bmp = new Bitmap(200, 200);
             var graphics = Graphics.FromImage(bmp);
 

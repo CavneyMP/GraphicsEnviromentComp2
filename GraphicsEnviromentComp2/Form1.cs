@@ -126,5 +126,15 @@ namespace GraphicsEnvironmentComp2
         {
 
         }
+
+        private void BothRun_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MultiLineBoth_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

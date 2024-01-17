@@ -62,7 +62,6 @@
     <Compile Include="Commands\ResetCommand.cs" />
     <Compile Include="Commands\SaveCommand.cs" />
     <Compile Include="Commands\SquareCommand.cs" />
-    <Compile Include="Commands\TriangleCommand.cs" />
     <Compile Include="CustomException\CustomArgumentException.cs" />
     <Compile Include="Factory\CommandFactory.cs" />
     <Compile Include="Form1.cs">
@@ -79,6 +78,9 @@
     <Compile Include="Parser\CommandParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
