@@ -49,6 +49,7 @@
     <Compile Include="Commands\ChangePenColourCommand.cs" />
     <Compile Include="Commands\CircleCommand.cs" />
     <Compile Include="Commands\ChangeVariableAmount.cs" />
+    <Compile Include="Commands\UserDefinedMethods.cs" />
     <Compile Include="Commands\ClearCommand.cs" />
     <Compile Include="Commands\DrawToCommand.cs" />
     <Compile Include="Commands\EndIfCommand.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="GraphicContext\VariableContext.cs" />
     <Compile Include="Helpers\CommandHelper.cs" />
     <Compile Include="Commands\IfCommand.cs" />
+    <Compile Include="MethodInvocationCommand.cs" />
     <Compile Include="Parser\CommandParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

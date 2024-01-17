@@ -22,6 +22,8 @@ public class DrawToCommand : ICommandInterface
     {
         int x = TryToParseParameter(_xParameter, _VariableContext);
         int y = TryToParseParameter(_yParameter, _VariableContext);
+        Console.WriteLine($"Drawing to position ({x}, {y})"); // Debugging comment
+
 
         Point newPosition = new Point(x, y);
 
