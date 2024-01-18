@@ -7,15 +7,26 @@ using System;
 
 namespace GraphicsEnvironmentComp2.Commands.Tests
 {
+
+    /// <summary>
+    /// A class which contains tests for the loop command
+    /// </summary>
     [TestClass()]
     public class LoopCommandTests
     {
+        /// <summary>
+        /// The test is looking to make sure that the loop command executes the commands for the correct number of iterations
+        /// </summary>
         [TestMethod()]
         public void LoopCommand_Execute_ShouldExecuteCommandsForIterations()
         {
             var context = new GraphicsContext();
             var variableContext = new VariableContext();
-            var loopCommand = new LoopCommand(3); // 3 iterations
+            string iterationVariable = "iterations";
+            int iterationCount = 3;
+            variableContext.SetVariable(iterationVariable, iterationCount); 
+
+            var loopCommand = new LoopCommand(iterationVariable, variableContext); 
             int executionCount = 0;
 
             ICommandInterface mockCommand = new MockCommand(() => executionCount++);
@@ -28,11 +39,16 @@ namespace GraphicsEnvironmentComp2.Commands.Tests
 
             loopCommand.Execute(safeGraphics);
 
-            Assert.AreEqual(3, executionCount); // Should execute 3 times
+            Assert.AreEqual(iterationCount, executionCount); // Should execute 3 times
 
             graphics.Dispose();
             bmp.Dispose();
         }
+
+
+        /// <summary>
+        /// Mock command for testing purposes
+        /// </summary>
 
         private class MockCommand : ICommandInterface
         {

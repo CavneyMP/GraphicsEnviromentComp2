@@ -43,7 +43,7 @@ namespace GraphicsEnvironmentComp2.GraphicContext
 
         public int GetVariable(string name) 
         {
-            if (variables.TryGetValue(name, out int value)) // If varaible is
+            if (variables.TryGetValue(name, out int value))
             {
                 return value; // Return value
             }

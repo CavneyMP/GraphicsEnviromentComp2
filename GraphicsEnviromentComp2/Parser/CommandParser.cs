@@ -85,9 +85,23 @@ namespace GraphicsEnvironmentComp2.Parser
                     return new MethodInvocationCommand(method, args, _variableContext, new GraphicsContext());
                 }
             }
-            else if (command == "loop" && int.TryParse(tokens[1], out int iterations))
+            else if (command == "loop")
             {
-                _currentLoop = new LoopCommand(iterations);
+                string loopArgument = tokens[1];
+
+                // Check if loopArgument is a variable name
+                if (_variableContext.VariableExists(loopArgument))
+                {
+                    _currentLoop = new LoopCommand(loopArgument, _variableContext);
+                }
+                else if (int.TryParse(loopArgument, out int iterations))
+                {
+                    _currentLoop = new LoopCommand(iterations.ToString(), _variableContext);
+                }
+                else
+                {
+                    throw new CustomArgumentException($"Tech message","'{loopArgument}' is neither a valid variable nor an integer.");
+                }
                 return new NoOpCommand();
             }
             else if (command == "endloop")

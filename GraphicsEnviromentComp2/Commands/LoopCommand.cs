@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using GraphicsEnvironmentComp2.GraphicContext;
 using static GraphicsEnvironmentComp2.Form1;
 
 namespace GraphicsEnvironmentComp2.Commands
@@ -9,14 +10,15 @@ namespace GraphicsEnvironmentComp2.Commands
     /// </summary>
     public class LoopCommand : ICommandInterface
     {
-        private readonly int _iterations; // private integer to store the value passed from input to specify desired number of iterations
-        private readonly List<ICommandInterface> _commands; // a list to hold the commands that are found in the loop
+        private readonly string _variableName; // Variable name for dynamic iteration count
+        private readonly VariableContext _variableContext; // Variable context to access the variable
+        private readonly List<ICommandInterface> _commands; // List to hold the commands that are found in the loop
 
-
-        //Constructor
-        public LoopCommand(int iterations)
+        // Constructor accepting a variable name and variable context
+        public LoopCommand(string variableName, VariableContext variableContext)
         {
-            _iterations = iterations; // assign the private fields to the variable passed when command is called
+            _variableName = variableName;
+            _variableContext = variableContext;
             _commands = new List<ICommandInterface>();
         }
 
@@ -30,12 +32,18 @@ namespace GraphicsEnvironmentComp2.Commands
         }
 
         /// <summary>
-        /// Executes all commands in the loop for a set number of iterations.
+        /// Executes all commands in the loop for the number of iterations specified by the variable.
         /// </summary>
         /// <param name="safeGraphics">The SafeGraphics object used for thread-safe drawing.</param>
         public void Execute(SafeGraphics safeGraphics)
         {
-            for (int i = 0; i < _iterations; i++) // Loops through the number of iterations
+            if (!_variableContext.VariableExists(_variableName))
+            {
+                throw new ArgumentException($"Variable '{_variableName}' does not exist.");
+            }
+
+            int iterations = _variableContext.GetVariable(_variableName);
+            for (int i = 0; i < iterations; i++) // Loops through the number of iterations determined by the variable
             {
                 foreach (var command in _commands) // For each command in the list
                 {
