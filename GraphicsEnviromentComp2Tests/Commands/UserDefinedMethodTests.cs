@@ -43,7 +43,6 @@ namespace GraphicsEnvironmentComp2.Tests
         {
             public void Execute(SafeGraphics safeGraphics)
             {
-                // Simulate Execute method
             }
         }
     }

@@ -65,7 +65,7 @@
     <Compile Include="Commands\LoopCommandTests.cs" />
     <Compile Include="Commands\MoveToCommandTests.cs" />
     <Compile Include="Commands\ResetCommandTests.cs" />
-    <Compile Include="Commands\SquareCommandTests.cs" />
+    <Compile Include="Commands\ThreadingTest.cs" />
     <Compile Include="Commands\UserDefinedMethodTests.cs" />
     <Compile Include="CustomException\CustomArgumentExceptionTests.cs" />
     <Compile Include="GraphicContext\VariableContextTests.cs" />

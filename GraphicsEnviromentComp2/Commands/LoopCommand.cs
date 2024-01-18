@@ -12,6 +12,8 @@ namespace GraphicsEnvironmentComp2.Commands
         private readonly int _iterations; // private integer to store the value passed from input to specify desired number of iterations
         private readonly List<ICommandInterface> _commands; // a list to hold the commands that are found in the loop
 
+
+        //Constructor
         public LoopCommand(int iterations)
         {
             _iterations = iterations; // assign the private fields to the variable passed when command is called

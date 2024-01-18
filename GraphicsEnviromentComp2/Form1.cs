@@ -138,7 +138,8 @@ namespace GraphicsEnvironmentComp2
             foreach (string line in lines)
             {
                 ICommandInterface command = parser.ParseCommand(line, "");
-                command.Execute(safeGraphics); 
+                command.Execute(safeGraphics);
+                Thread.Sleep(500);
             }
 
             graphics.Dispose();
